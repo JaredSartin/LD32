@@ -1,0 +1,10 @@
+*.swp
+*.swo
+
+.DS_Store
+.sass-cache
+build
+Desktop.ini
+node_modules
+
+src/raw\ sprites
