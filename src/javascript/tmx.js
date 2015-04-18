@@ -8,6 +8,7 @@ var files = [
   "jen.png",
   "table.json",
   "table.png",
+  "BigMapColor.jpg",
 ];
 
 for(i in levels) {
