@@ -1,9 +1,12 @@
 Quintus = require('quintus')
 
-var Q = window.Q = Quintus()
-        .include("Sprites, Scenes, Input, 2D, Anim, Touch, UI, TMX")
-        .setup({ maximize: true })
-        .controls();
+var Q = window.Q = Quintus().include("Sprites, Scenes, Input, 2D, Anim, Touch, UI, TMX")
+Q.SPRITE_PLAYER = 2;
+Q.SPRITE_WEAPON = 4;
+Q.SPRITE_NPC = 8;
+Q.SPRITE_INTERACTIVE = 16;
+
+Q.setup({ maximize: true }).controls().touch(Q.SPRITE_ALL);
 
 Q.input.keyboardControls({
   LEFT: "left",
@@ -18,11 +21,7 @@ Q.input.keyboardControls({
 });
 
 
-Q.SPRITE_PLAYER = 2;
-Q.SPRITE_WEAPON = 4;
-Q.SPRITE_NPC = 8;
-Q.SPRITE_INTERACTIVE = 16;
-
 require('./character')
 require('./interactive')
+require('./decoration')
 require('./tmx')

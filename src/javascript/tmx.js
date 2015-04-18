@@ -1,10 +1,11 @@
 var levels = require('./levels');
 
 var files = [
-  "robros.json",
-  "robros.png",
-  "interactive.json",
-  "interactive.png",
+  "tiles.png",
+  "jim.json",
+  "jim.png",
+  "jen.json",
+  "jen.png",
 ];
 
 for(i in levels) {
@@ -12,18 +13,15 @@ for(i in levels) {
 }
 
 Q.loadTMX(files.join(", "), function() {
-  Q.compileSheets("robros.png","robros.json");
-  Q.compileSheets("interactive.png","interactive.json");
+  Q.compileSheets("jim.png","jim.json");
+  Q.compileSheets("jen.png","jen.json");
+  // Q.compileSheets("interactive.png","interactive.json");
 
-  Q.animations("robro", {
-    roll_right: { frames: [0,1], rate: 1/8, flip: false, loop: true },
-    roll_left: { frames: [0,1], rate: 1/8, flip:"x", loop: true },
-    stop_right: { frames: [0,1], rate: 99, flip: false, loop: true },
-    stop_left: { frames: [0,1], rate: 99, flip:"x", loop: true },
-    jump_right: { frames: [2,3], rate: 1/10, flip: false },
-    jump_left: { frames: [2,3], rate: 1/10, flip: "x" },
-    dead_right: { frames: [4], rate: 1/10 },
-    dead_left: { frames: [4], rate: 1/10, flip: "x" },
+  Q.animations("person", {
+    walk_right: { frames: [0,1,2,3,4,5,6,7,8,9,10], rate: 1/12, flip: false, loop: true },
+    walk_left: { frames: [0,1,2,3,4,5,6,7,8,9,10], rate: 1/12, flip: "x", loop: true },
+    stand_right: { frames: [8,9], rate: 99, flip: false, loop: true },
+    stand_left: { frames: [8,9], rate: 99, flip:"x", loop: true },
   });
 
   Q.stageScene(levels[0].name);

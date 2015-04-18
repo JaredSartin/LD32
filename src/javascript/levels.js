@@ -1,9 +1,5 @@
 var levels = [
-  {title: "A Little Boost", name: "aLittleBoost", threeStarTime: 8, twoStarTime: 11, oneStarTime: 18},
-  {title: "A Little Toss", name: "aLittleToss", threeStarTime: 13, twoStarTime: 16, oneStarTime: 20},
-  {title: "A Little Thought", name: "aLittleThought", threeStarTime: 24, twoStarTime: 32, oneStarTime: 40},
-  {title: "A Little Swap", name: "aLittleZap", threeStarTime: 55, twoStarTime: 65, oneStarTime: 78},
-  {title: "A Little... BIG Mess", name: "testingGround", threeStarTime: 10, twoStarTime: 12, oneStarTime: 15},
+  {title: "An Unconventional Death", name: "test"},
 ]
 
 // Level Builder
@@ -32,7 +28,9 @@ for(i in levels) {
         };
       };
 
-      stage.add("viewport").followSelector("Robro");
+      stage.add("viewport");
+      stage.viewport.scale = 0.5;
+      stage.viewport.centerOn(800, 500);
     });
   })(levels[i], levels[parseInt(i)+1], i)
 }
@@ -94,20 +92,11 @@ Q.scene('winLevel',function(stage) {
 });
 
 Q.scene('levelOverlay',function(stage) {
-  var timer = stage.insert(new Q.UI.Text({
-    x:Q.width /2,
-    y: 30,
-    label: "0",
-    color: "#FFFFFF",
-    outlineColor: "#545E5E",
-    outlineWidth: 7
-  }));
-
-
   var title = stage.insert(new Q.UI.Text({
     x: Q.width / 2,
     y: Q.height / 3,
-    label: "Level " + stage.options.number + " — " + stage.options.title+ "...",
+    // label: "Level " + stage.options.number + " — " + stage.options.title+ "...",
+    label: stage.options.title,
     color: "#FFFFFF",
     outlineColor: "#545E5E",
     outlineWidth: 7,
@@ -118,18 +107,6 @@ Q.scene('levelOverlay',function(stage) {
 
   setTimeout(function() { title.animate({opacity: 1}, 0.75)}, 500);
   setTimeout(function() { title.animate({opacity: 0}, 0.75)}, 4000);
-
-  stage.runTimer = false;
-  stage.elapsedTime = 0;
-  stage.playerDoubleJumps = 0;
-  stage.playerThrows = 0;
-  stage.playerSwaps = 0;
-
-  stage.on("step", function(dt) {
-    if(stage.runTimer)
-      stage.elapsedTime += dt;
-    timer.p.label = parseFloat(stage.elapsedTime).toFixed(2);
-  });
 });
 
 module.exports = levels;

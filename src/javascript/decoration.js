@@ -1,9 +1,8 @@
-Q.Sprite.extend("Interactive",{
+Q.Sprite.extend("Decoration",{
   init: function(p) {
     this._super(p, {
       asset: p.image,
-      sensor: true,
-      type: Q.SPRITE_INTERACTIVE,
+      type: Q.SPRITE_NONE,
       collisionMask: Q.SPRITE_NONE,
       gravity: 0,
     });
