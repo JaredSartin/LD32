@@ -4,6 +4,7 @@ Q.Sprite.extend("Decoration",{
       asset: p.image,
       type: Q.SPRITE_NONE,
       collisionMask: Q.SPRITE_NONE,
+      visibleOnly: true,
       gravity: 0,
     });
   }

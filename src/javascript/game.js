@@ -6,7 +6,7 @@ Q.SPRITE_WEAPON = 4;
 Q.SPRITE_NPC = 8;
 Q.SPRITE_INTERACTIVE = 16;
 
-Q.setup({ maximize: true }).controls().touch(Q.SPRITE_ALL);
+Q.setup({ maximize: true }).touch(Q.SPRITE_ALL);
 
 Q.input.keyboardControls({
   LEFT: "left",
