@@ -1,11 +1,14 @@
 Q.Sprite.extend("Interactive",{
   init: function(p) {
     this._super(p, {
-      asset: p.image,
+      sprite: p.prop,
+      sheet: p.prop,
       sensor: true,
       type: Q.SPRITE_INTERACTIVE,
-      collisionMask: Q.SPRITE_NONE,
+      collisionMask: Q.SPRITE_PLAYER,
       gravity: 0,
     });
+
+    this.add('2d, animation');
   }
 });

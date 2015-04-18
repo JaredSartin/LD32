@@ -30,7 +30,7 @@ for(i in levels) {
 
       stage.add("viewport");
       stage.viewport.scale = 0.5;
-      stage.viewport.centerOn(800, 500);
+      // stage.viewport.centerOn(800, 500);
     });
   })(levels[i], levels[parseInt(i)+1], i)
 }

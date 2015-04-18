@@ -7,7 +7,7 @@ Q.Sprite.extend("Character", {
       isControlled: false,
       direction: "right",
       points: [[-40, -120], [40, -120], [40, 110], [-40, 110]],
-      type: Q.SPRITE_PLAYER,
+      type: Q.SPRITE_NPC,
     });
 
     this.add('2d, animation');
@@ -15,8 +15,15 @@ Q.Sprite.extend("Character", {
   },
 
   touch: function() {
-    Q("Character").set("controlled", false);
+    Q("Character").invoke("stopControl", false);
+    this.p.type = Q.SPRITE_PLAYER;
     this.p.controlled = true;
+    Q.stage().follow(this);
+  },
+
+  stopControl: function() {
+    this.p.type = Q.SPRITE_NPC;
+    this.p.controlled = false;
   },
 
   step: function(dt) {
