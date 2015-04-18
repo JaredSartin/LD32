@@ -1,6 +1,7 @@
 *.swp
 *.swo
 
+.publish
 .DS_Store
 .sass-cache
 build
