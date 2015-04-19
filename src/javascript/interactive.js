@@ -3,7 +3,7 @@ Q.Sprite.extend("Interactive",{
     this._super(p, {
       sprite: p.prop,
       sheet: p.prop,
-      sensor: true,
+      sensor: p.door ? false : true,
       type: Q.SPRITE_INTERACTIVE,
       collisionMask: Q.SPRITE_NONE | Q.SPRITE_PLAYER,
       gravity: 0,
@@ -12,9 +12,13 @@ Q.Sprite.extend("Interactive",{
 
     this.add('animation');
     this.on("sensor");
+    this.on("hit");
     this.on("complete");
 
     this.play("normal");
+
+    if(this.p.door)
+      this.p.points = [[-5, -140], [46, -140], [46, 140], [-5, 140]];
   },
 
   use: function(player) {
@@ -28,11 +32,18 @@ Q.Sprite.extend("Interactive",{
     if(this.p.usable) sensed.trigger("sensor", this);
   },
 
+  hit: function(hit) {
+    if(this.p.usable) hit.obj.trigger("doorSensor", this);
+  },
+
   complete: function() {
     var link = this.stage.find(this.p.link);
     if(link !== undefined) {
       link.p.usable = true;
       link.use();
+    }
+    if(this.p.door) {
+      this.p.sensor = true;
     }
   }
 });

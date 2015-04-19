@@ -16,20 +16,28 @@ Q.Sprite.extend("Character", {
     this.add('2d, animation');
     this.on("touch");
     this.on("sensor");
+    this.on("doorSensor");
     this.on("attacked");
     this.p.sheet = this.p.sprite + "Walk";
   },
 
   touch: function() {
-    Q("Character").invoke("stopControl", false);
-    this.p.type = Q.SPRITE_PLAYER;
-    this.p.controlled = true;
-    Q.stage().follow(this);
+    if(!this.p.isNPC) {
+      Q("Character").invoke("stopControl", false);
+      this.p.type = Q.SPRITE_PLAYER;
+      this.p.controlled = true;
+      Q.stage().follow(this);
+    }
   },
 
   sensor: function(sensor) {
     this.sensor = sensor;
     this.p.canUse = 1/5;
+  },
+
+  doorSensor: function(sensor) {
+    this.sensor = sensor;
+    this.p.canUse = 1;
   },
 
   stopControl: function() {
