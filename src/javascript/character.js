@@ -1,5 +1,6 @@
 Q.Sprite.extend("Character", {
   init: function(p) {
+    console.log(p.character);
     this._super(p, {
       sheet: p.character,
       sprite: p.character,
@@ -73,14 +74,12 @@ Q.Sprite.extend("Character", {
       if(this.p.canUse > 0) {
         this.sensor.use(this);
         processed = true;
-      } else {
+      } else if(!!this.p.door) {
         this.p.checkDoor = true;
-      }
-
-      if(!processed && this.p.weapon !== undefined) {
+      } else if(!processed && this.p.weapon !== undefined) {
         var attack = "Attack" + this.p.weapon;
         this.p.sheet = this.p.sprite + attack;
-        this.play(attack);
+        this.play(attack + "_" + this.p.direction);
         this.p.attacking = true;
       }
     }

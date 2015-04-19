@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="70" height="30" tilewidth="40" tileheight="40" nextobjectid="124">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="70" height="30" tilewidth="40" tileheight="40" nextobjectid="130">
  <properties>
   <property name="levelName" value="A Little Boost"/>
  </properties>
@@ -194,7 +194,7 @@
   </tile>
  </tileset>
  <tileset firstgid="30" name="Jim" tilewidth="240" tileheight="320">
-  <image source="../images/jim.png" width="2048" height="962"/>
+  <image source="../images/jim.png" width="2048" height="2884"/>
   <tile id="0">
    <properties>
     <property name="Class" value="Character"/>
@@ -388,76 +388,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="62" name="jen" tilewidth="80" tileheight="321">
-  <image source="../images/jen.png" width="880" height="321"/>
-  <tile id="0">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="1">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="2">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="3">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="4">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="5">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="6">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="7">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="8">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="9">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
-  <tile id="10">
-   <properties>
-    <property name="Class" value="Character"/>
-    <property name="character" value="Jen"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="73" name="background" tilewidth="2480" tileheight="960">
+ <tileset firstgid="102" name="background" tilewidth="2480" tileheight="960">
   <tile id="0">
    <properties>
     <property name="Class" value="Decoration"/>
@@ -472,7 +403,7 @@
    <image width="128" height="128" source="../../raw/interaction.png"/>
   </tile>
  </tileset>
- <tileset firstgid="75" name="bookshelf" tilewidth="320" tileheight="360">
+ <tileset firstgid="104" name="bookshelf" tilewidth="320" tileheight="360">
   <image source="../images/bookshelf.png" width="1600" height="361"/>
   <tile id="0">
    <properties>
@@ -515,7 +446,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="80" name="paperfall" tilewidth="240" tileheight="240">
+ <tileset firstgid="109" name="paperfall" tilewidth="240" tileheight="240">
   <image source="../images/paperfall.png" width="2048" height="1681"/>
   <tile id="0">
    <properties>
@@ -966,6 +897,537 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="165" name="Jen" tilewidth="240" tileheight="320">
+  <image source="../images/jen.png" width="2048" height="3524"/>
+  <tile id="0">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="55">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="61">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="62">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="63">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="65">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="70">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="78">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="79">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="80">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="83">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="84">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="85">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="86">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="Class" value="Character"/>
+    <property name="character" value="Jen"/>
+   </properties>
+  </tile>
+ </tileset>
  <imagelayer name="Background">
   <image source="../images/bg_castle.png"/>
   <properties>
@@ -974,15 +1436,16 @@
   </properties>
  </imagelayer>
  <objectgroup name="Walls">
-  <object id="99" gid="73" x="40" y="1000"/>
+  <object id="99" gid="102" x="40" y="1000"/>
  </objectgroup>
  <objectgroup name="Background Props">
   <object id="100" gid="9" x="708" y="970"/>
-  <object id="120" gid="75" x="1191.06" y="479.956"/>
-  <object id="121" gid="80" x="1187" y="538"/>
+  <object id="120" gid="104" x="1191.06" y="479.956"/>
+  <object id="121" gid="109" x="1187" y="538"/>
  </objectgroup>
  <objectgroup name="Actors">
-  <object id="102" gid="46" x="2522" y="966"/>
+  <object id="128" gid="30" x="2521" y="957"/>
+  <object id="129" gid="165" x="2634" y="955"/>
  </objectgroup>
  <layer name="Map" width="70" height="30">
   <properties>
@@ -3102,25 +3565,25 @@
   <object id="108" gid="8" x="1026" y="994"/>
   <object id="109" gid="8" x="319" y="990"/>
   <object id="110" gid="8" x="323" y="527"/>
-  <object id="115" gid="74" x="2077" y="907">
+  <object id="115" gid="103" x="2077" y="907">
    <properties>
     <property name="id" value="door3"/>
     <property name="link" value="door4"/>
    </properties>
   </object>
-  <object id="116" gid="74" x="132" y="908">
+  <object id="116" gid="103" x="132" y="908">
    <properties>
     <property name="id" value="door1"/>
     <property name="link" value="door2"/>
    </properties>
   </object>
-  <object id="117" gid="74" x="132" y="407">
+  <object id="117" gid="103" x="132" y="407">
    <properties>
     <property name="id" value="door2"/>
     <property name="link" value="door1"/>
    </properties>
   </object>
-  <object id="118" gid="74" x="1732" y="423">
+  <object id="118" gid="103" x="1732" y="423">
    <properties>
     <property name="id" value="door4"/>
     <property name="link" value="door3"/>
