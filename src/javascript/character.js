@@ -42,8 +42,6 @@ Q.Sprite.extend("Character", {
     this.play("stand_" + this.p.direction);
   },
 
-
-
   step: function(dt) {
     var processed = false;
     if(this.p.attacking) return;
@@ -73,14 +71,17 @@ Q.Sprite.extend("Character", {
 
     if(!processed && Q.inputs["action"]) {
       if(this.p.canUse > 0) {
-        this.sensor.use();
-        if(this.sensor.p.sprite === "KitchenTable") {
-          this.p.sheet = this.p.sprite + "AttackFruitBowl";
-          this.play("attack_fruit_bowl");
-          this.p.attacking = true;
-        }
+        this.sensor.use(this);
+        processed = true;
       } else {
         this.p.checkDoor = true;
+      }
+
+      if(!processed && this.p.weapon !== undefined) {
+        var attack = "Attack" + this.p.weapon;
+        this.p.sheet = this.p.sprite + attack;
+        this.play(attack);
+        this.p.attacking = true;
       }
     }
 
