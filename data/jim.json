@@ -1,1 +1,1 @@
-{"JimAttackFruitBowl":{"sx":0,"sy":1,"cols":8,"tilew":240,"tileh":320,"frames":15},"JimWalk":{"sx":0,"sy":642,"cols":11,"tilew":80,"tileh":320,"frames":11}}
+{"JimAttackCoatRack":{"sx":0,"sy":1,"cols":8,"tilew":240,"tileh":320,"frames":16},"JimAttackFruitBowl":{"sx":0,"sy":642,"cols":8,"tilew":240,"tileh":320,"frames":16},"JimAttackLetterOpener":{"sx":0,"sy":1283,"cols":8,"tilew":240,"tileh":320,"frames":27},"JimWalk":{"sx":0,"sy":2564,"cols":11,"tilew":80,"tileh":320,"frames":11}}
