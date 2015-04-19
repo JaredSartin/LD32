@@ -5,6 +5,7 @@ Q.SPRITE_PLAYER = 2;
 Q.SPRITE_WEAPON = 4;
 Q.SPRITE_NPC = 8;
 Q.SPRITE_INTERACTIVE = 16;
+Q.SPRITE_DOOR = 32;
 
 Q.setup({ maximize: true }).touch(Q.SPRITE_ALL);
 
@@ -22,6 +23,7 @@ Q.input.keyboardControls({
 
 
 require('./character')
+require('./door')
 require('./interactive')
 require('./decoration')
 require('./tmx')
