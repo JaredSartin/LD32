@@ -11,6 +11,7 @@ Q.Sprite.extend("Character", {
       isControlled: false,
       isRemote: false,
       isAlive: true,
+      canBeChosen: true,
       direction: "right",
       points: this.normalPoints,
       type: Q.SPRITE_NPC,
@@ -30,7 +31,7 @@ Q.Sprite.extend("Character", {
   },
 
   touch: function() {
-    if(!this.p.isNPC) {
+    if(!this.p.isNPC && this.p.character !== "Pearl" && this.p.canBeChosen) {
       Q("Character").invoke("stopControl", false);
       this.p.type = Q.SPRITE_PLAYER;
       this.p.controlled = true;
@@ -66,6 +67,7 @@ Q.Sprite.extend("Character", {
   },
 
   stopControl: function() {
+    this.p.canBeChosen = false;
     this.p.type = Q.SPRITE_NPC;
     this.p.controlled = false;
   },
