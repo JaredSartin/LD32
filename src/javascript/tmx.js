@@ -135,5 +135,8 @@ Q.loadTMX(files.join(", "), function() {
     used: { frames: [54], rate: 1/12, flip: false },
   });
 
-  Q.stageScene(levels[0].name);
+  document.querySelectorAll("video")[0].onended = function() {
+    this.parentNode.removeChild(this);
+    Q.stageScene(levels[0].name);
+  }
 });
