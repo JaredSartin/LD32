@@ -32,13 +32,15 @@ for(i in levels) {
           door.use();
         });
 
+        // DOOR SENSOR TO OTHER FLOOR
+
         pearl.on("remoteDone", function(method) {
           if(method =="walkLeft") {
             pearl.remoteControl("stand", 1, true);
           }
         });
         pearl.remoteControl("walkLeft", 8);
-      }, 1000);
+      }, 15000);
 
       stage.on("step", level.step);
     });
