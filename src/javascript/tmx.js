@@ -2,38 +2,47 @@ var levels = require('./levels');
 
 var files = [
   "tiles.png",
-  "bath.json",
-  "bath.png",
-  "jim.json",
-  "jim.png",
-  "jen.json",
-  "jen.png",
   "pearl.json",
   "pearl.png",
-  "table.json",
-  "table.png",
-  "bookshelf.json",
-  "bookshelf.png",
-  "door.json",
-  "door.png",
-  "paperfall.json",
-  "paperfall.png",
   "BigMapColor.jpg",
 ];
+
+var sheets = [
+  "BathroomA",
+  "BathroomB",
+  "BathroomC",
+  "JenWalk",
+  "JenAttackCoatRack",
+  "JenAttackFruitBowl",
+  "JenAttackLetterOpener",
+  "JimWalk",
+  "JimAttackCoatRack",
+  "JimAttackFruitBowl",
+  "JimAttackLetterOpener",
+  "JimHurtFront",
+  "JimHurtBack",
+  "PearlWalk",
+  "PearlHurtFront",
+  "PearlHurtBack",
+  "table",
+  "door",
+  "paperfall",
+  "bookshelf",
+];
+
+for(i in sheets) {
+  files.push(sheets[i] + ".png");
+  files.push(sheets[i] + ".json");
+}
 
 for(i in levels) {
   files.push(levels[i].name + ".tmx");
 }
 
 Q.loadTMX(files.join(", "), function() {
-  Q.compileSheets("jim.png","jim.json");
-  Q.compileSheets("jen.png","jen.json");
-  Q.compileSheets("pearl.png","pearl.json");
-  Q.compileSheets("table.png","table.json");
-  Q.compileSheets("door.png","door.json");
-  Q.compileSheets("bath.png","bath.json");
-  Q.compileSheets("bookshelf.png","bookshelf.json");
-  Q.compileSheets("paperfall.png","paperfall.json");
+  for(i in sheets) {
+    Q.compileSheets(sheets[i] + ".png", sheets[i] + ".json");
+  }
 
   var frames = [];
   while(frames.length < 26) { frames.push(frames.length); }
@@ -118,7 +127,7 @@ Q.loadTMX(files.join(", "), function() {
   Q.animations("BathroomA", {
     normal: { frames: [0], rate: 1/12, flip: false, loop: true },
     interact: { frames: frames, rate: 1/12, flip: false, loop: false, trigger: "complete" },
-    used: { frames: [36], rate: 1/12, flip: false },
+    used: { frames: [35], rate: 1/12, flip: false },
   });
 
   var frames = []; while(frames.length < 32) { frames.push(frames.length); }

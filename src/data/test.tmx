@@ -2653,13 +2653,6 @@
    </properties>
   </tile>
  </tileset>
- <imagelayer name="Background">
-  <image source="../images/bg_castle.png"/>
-  <properties>
-   <property name="speedX" value="0.5"/>
-   <property name="speedY" value="0.5"/>
-  </properties>
- </imagelayer>
  <objectgroup name="Walls">
   <object id="99" gid="153" x="40" y="1000"/>
  </objectgroup>
