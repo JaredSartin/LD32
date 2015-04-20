@@ -1,14 +1,19 @@
 Q.Sprite.extend("Character", {
   init: function(p) {
-    console.log(p.character);
+    this.normalPoints = [[-40, -40], [40, -40], [40, 150], [-40, 150]];
+    this.attackingPoints_right = [[-40, -40], [100, -40], [100, 150], [-40, 150]];
+    this.attackingPoints_left = [[40, -40], [-100, -40], [-100, 150], [40, 150]];
+
     this._super(p, {
       sheet: p.character,
+      sensor: true,
       sprite: p.character,
       isControlled: false,
+      isAlive: true,
       direction: "right",
-      points: [[-40, -40], [40, -40], [40, 150], [-40, 150]],
+      points: this.normalPoints,
       type: Q.SPRITE_NPC,
-      collisionMask: Q.SPRITE_DEFAULT | Q.SPRITE_INTERACTIVE | Q.SPRITE_WEAPON | Q.SPRITE_DOOR,
+      collisionMask: Q.SPRITE_DEFAULT | Q.SPRITE_INTERACTIVE | Q.SPRITE_DOOR | Q.SPRITE_NPC,
       canUse: 0,
       cx: 40,
     });
@@ -18,6 +23,7 @@ Q.Sprite.extend("Character", {
     this.on("sensor");
     this.on("doorSensor");
     this.on("attacked");
+    this.on("injured");
     this.p.sheet = this.p.sprite + "Walk";
   },
 
@@ -31,8 +37,12 @@ Q.Sprite.extend("Character", {
   },
 
   sensor: function(sensor) {
-    this.sensor = sensor;
-    this.p.canUse = 1/5;
+    if(sensor.isA("Interactive")) {
+      this.sensor = sensor;
+      this.p.canUse = 1/5;
+    } else if(sensor.isA("Character") && this.p.attacking && sensor.p.isAlive) {
+      sensor.trigger("injured");
+    }
   },
 
   doorSensor: function(sensor) {
@@ -47,8 +57,14 @@ Q.Sprite.extend("Character", {
 
   attacked: function() {
     this.p.attacking = false;
+    this.p.points = this.normalPoints;
     this.p.sheet = this.p.sprite + "Walk";
     this.play("stand_" + this.p.direction);
+  },
+
+  injured: function() {
+    console.log("OW");
+    this.p.isAlive = false;
   },
 
   step: function(dt) {
@@ -85,10 +101,11 @@ Q.Sprite.extend("Character", {
       } else if(!!this.p.door) {
         this.p.checkDoor = true;
       } else if(!processed && this.p.weapon !== undefined) {
+        this.p.attacking = true;
+        this.p.points = this["attackingPoints_"+this.p.direction];
         var attack = "Attack" + this.p.weapon;
         this.p.sheet = this.p.sprite + attack;
         this.play(attack + "_" + this.p.direction);
-        this.p.attacking = true;
       }
     }
 

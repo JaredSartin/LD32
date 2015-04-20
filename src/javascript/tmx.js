@@ -95,6 +95,18 @@ Q.loadTMX(files.join(", "), function() {
     used: { frames: [28], rate: 1/12, flip: false },
   });
 
+  Q.animations("HallwayDoors", {
+    normal: { frames: [0], rate: 1/12, flip: false, loop: true },
+    interact: { frames: [0,1,2,3,4,5,6,7,8,9,10,11,12], rate: 1/12, flip: false, loop: false, trigger: "complete" },
+    used: { frames: [12], rate: 1/12, flip: false },
+  });
+
+  Q.animations("CoatRack", {
+    normal: { frames: [0], rate: 1/12, flip: false, loop: true },
+    interact: { frames: [0,1], rate: 1/12, flip: false, loop: false, trigger: "complete" },
+    used: { frames: [1], rate: 1/12, flip: false },
+  });
+
   var frames = [];
   while(frames.length < 55) {
     frames.push(frames.length);

@@ -29,7 +29,7 @@ Q.Sprite.extend("Interactive",{
   },
 
   sensor: function(sensed) {
-    if(this.p.usable) sensed.trigger("sensor", this);
+    if(sensed.isA("Character") && this.p.usable) sensed.trigger("sensor", this);
   },
 
   hit: function(hit) {
