@@ -19,6 +19,9 @@ Q.Sprite.extend("Interactive",{
 
     if(this.p.door)
       this.p.points = [[-5, -140], [46, -140], [46, 140], [-5, 140]];
+
+    if(this.p.prop.indexOf("Bathroom") === 0)
+      this.p.points = [[-194, -160], [-114, -160], [-114, 160], [-194, 160]];
   },
 
   use: function(player) {

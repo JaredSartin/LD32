@@ -37,11 +37,11 @@ Q.Sprite.extend("Character", {
   },
 
   sensor: function(sensor) {
-    if(sensor.isA("Interactive")) {
+    if(sensor.isA("Interactive") && sensor.p.usable) {
       this.sensor = sensor;
       this.p.canUse = 1/5;
     } else if(sensor.isA("Character") && this.p.attacking && sensor.p.isAlive) {
-      sensor.trigger("injured");
+      sensor.trigger("injured", this.p.direction);
     }
   },
 
@@ -62,14 +62,24 @@ Q.Sprite.extend("Character", {
     this.play("stand_" + this.p.direction);
   },
 
-  injured: function() {
-    console.log("OW");
+  injured: function(attackerFacing) {
+    if(this.p.direction == attackerFacing) var side = "Back";
+    else var side = "Front";
     this.p.isAlive = false;
+
+    console.log(side);
+    console.log(this.p.direction);
+    var This = this;
+    setTimeout(function() {
+      This.p.sheet = This.p.sprite + "Hurt" + side;
+      This.play("Hurt" + side + "_" + This.p.direction);
+    }, 200);
   },
 
   step: function(dt) {
     var processed = false;
     if(this.p.attacking) return;
+    if(!this.p.isAlive) return;
     if(!this.p.controlled) {
       this.play("stand_" + this.p.direction);
       return;

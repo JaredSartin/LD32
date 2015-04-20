@@ -1,6 +1,8 @@
 *.swp
 *.swo
 
+raw/
+
 .publish
 .DS_Store
 .sass-cache
