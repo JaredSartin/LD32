@@ -1,5 +1,14 @@
+var death = function(dt) {
+  window.timer = window.timer || 0;
+
+  window.timer += dt;
+
+  // at 20 seconds move jill to bedroom
+  // ...
+};
+
 var levels = [
-  {title: "An Unconventional Death", name: "test"},
+  {title: "Case File 0001: The Duprees", name: "test", step: death},
 ]
 
 // Level Builder
@@ -12,25 +21,33 @@ for(i in levels) {
       }
 
       var hud = Q.stageScene("levelOverlay", 1, {title: level.title, number: parseInt(levelNumber)+1});
-      this.playerFails = 0;
-      this.playerStarted = function() { hud.runTimer = true; };
-      this.playerEnded = function() { hud.runTimer = false; };
-      this.playerDoubleJump = function() { hud.playerDoubleJumps++; };
-      this.playerThrow = function() { hud.playerThrows++; };
-      this.playerSwap = function() { hud.playerSwaps++; };
-      this.levelStats = function() {
-        return {
-          time: hud.elapsedTime,
-          doubleJumps: hud.playerDoubleJumps,
-          botThrows: hud.playerThrows,
-          swaps: hud.playerSwaps,
-          goals: level,
-        };
-      };
 
       stage.add("viewport");
       stage.viewport.scale = 0.5;
       stage.viewport.centerOn(2000, 540);
+
+      stage.on("killed", function(name) { console.log(name + " has been killed") });
+
+      setTimeout(function() {
+        console.log("go!");
+        var pearl = undefined;
+        Q("Character").each(function() {
+          if(this.p.character == "Pearl") pearl = this;
+        });
+
+        pearl.on("doorSensor", function(door) {
+          door.use();
+        });
+
+        pearl.on("remoteDone", function(method) {
+          if(method =="walkLeft") {
+            pearl.remoteControl("stand", 1, true);
+          }
+        });
+        pearl.remoteControl("walkLeft", 8);
+      }, 10000);
+
+      stage.on("step", level.step);
     });
   })(levels[i], levels[parseInt(i)+1], i)
 }

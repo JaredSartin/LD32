@@ -9,6 +9,7 @@ Q.Sprite.extend("Character", {
       sensor: true,
       sprite: p.character,
       isControlled: false,
+      isRemote: false,
       isAlive: true,
       direction: "right",
       points: this.normalPoints,
@@ -32,7 +33,7 @@ Q.Sprite.extend("Character", {
       Q("Character").invoke("stopControl", false);
       this.p.type = Q.SPRITE_PLAYER;
       this.p.controlled = true;
-      Q.stage().follow(this);
+      Q.stage().follow(this, { x: true, y: false });
     }
   },
 
@@ -67,41 +68,76 @@ Q.Sprite.extend("Character", {
     else var side = "Front";
     this.p.isAlive = false;
 
-    console.log(side);
-    console.log(this.p.direction);
     var This = this;
     setTimeout(function() {
       This.p.sheet = This.p.sprite + "Hurt" + side;
       This.play("Hurt" + side + "_" + This.p.direction);
     }, 200);
+
+    Q.stage().trigger("killed", this.p.character);
+  },
+
+  remoteControl: function(command, duration, silent) {
+    if(silent === undefined) silent = false;
+    this.p.isRemote = true;
+    this.p.remote = command;
+    this.p.remoteTime = duration;
+    this.p.remoteSilent = silent;
+  },
+
+  stepRemote: function(dt) {
+    this.p.remoteTime -= dt;
+    this[this.p.remote]();
+    if(this.p.remoteTime < 0) {
+      if(!this.p.remoteSilent)
+        this.trigger("remoteDone", this.p.remote);
+      this.p.isRemote = false;
+      this.p.remote = undefined;
+      this.p.remoteTime = 0;
+    }
+  },
+
+  walkLeft: function() {
+    this.p.sheet = this.p.sprite + "Walk";
+    this.p.direction = "left";
+    this.play("walk_left");
+    this.p.vx = -200;
+  },
+
+  walkRight: function() {
+    this.p.sheet = this.p.sprite + "Walk";
+    this.p.direction = "right";
+    this.play("walk_right");
+    this.p.vx = 200;
+  },
+
+  stand: function() {
+    this.play("stand_" + this.p.direction);
+    this.p.vx = 0;
   },
 
   step: function(dt) {
     var processed = false;
     if(this.p.attacking) return;
     if(!this.p.isAlive) return;
-    if(!this.p.controlled) {
-      this.play("stand_" + this.p.direction);
-      return;
+    if(this.p.isRemote) this.stepRemote(dt);
+    if(!this.p.controlled && !this.p.isRemote) {
+      this.stand();
     };
+    if(!this.p.controlled || this.p.isRemote) {
+      return;
+    }
 
     this.p.canUse -= dt;
 
     if(Q.inputs["left"]) {
-      this.p.sheet = this.p.sprite + "Walk";
-      this.p.direction = "left";
-      this.play("walk_left");
-      this.p.vx = -200;
+      this.walkLeft();
       processed = true;
     } else if(Q.inputs["right"]) {
-      this.p.sheet = this.p.sprite + "Walk";
-      this.p.direction = "right";
-      this.play("walk_right");
-      this.p.vx = 200;
+      this.walkRight();
       processed = true;
     } else {
-      this.play("stand_" + this.p.direction);
-      this.p.vx = 0;
+      this.stand();
     }
 
     if(!processed && Q.inputs["action"]) {

@@ -1,5 +1,8 @@
 Q.Sprite.extend("Interactive",{
   init: function(p) {
+    if(p.triggerCharacter) {
+      p.triggerCharacter = eval(p.triggerCharacter)
+    }
     this._super(p, {
       sprite: p.prop,
       sheet: p.prop,
@@ -32,14 +35,21 @@ Q.Sprite.extend("Interactive",{
   },
 
   sensor: function(sensed) {
+    if(!!this.p.triggerCharacter && sensed.p.sprite == this.p.triggerCharacter) {
+      this.p.usable = true;
+      this.use(sensed);
+      return;
+    }
+
     if(sensed.isA("Character") && this.p.usable) sensed.trigger("sensor", this);
   },
 
   hit: function(hit) {
-    if(this.p.usable) hit.obj.trigger("doorSensor", this);
+    if(this.p.usable && this.p.door) hit.obj.trigger("doorSensor", this);
   },
 
   complete: function() {
+    this.play("used");
     var link = this.stage.find(this.p.link);
     if(link !== undefined) {
       link.p.usable = true;

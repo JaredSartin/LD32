@@ -2171,12 +2171,12 @@
   </tile>
  </tileset>
  <tileset firstgid="436" name="Bathroom" tilewidth="420" tileheight="320">
-  <image source="../images/bath.png" width="2048" height="4802"/>
+  <image source="../images/bath.png" width="2048" height="7043"/>
   <tile id="0">
    <properties>
     <property name="Class" value="Interactive"/>
     <property name="prop" value="BathroomA"/>
-    <property name="triggerCharacter" value="Pearl"/>
+    <property name="triggerCharacter" value="[&quot;Pearl&quot;]"/>
     <property name="usable" value="false"/>
    </properties>
   </tile>
