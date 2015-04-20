@@ -16,8 +16,8 @@ for(i in levels) {
       var hud = Q.stageScene("levelOverlay", 1, {title: level.title, number: parseInt(levelNumber)+1});
 
       stage.add("viewport");
-      stage.viewport.scale = 0.5;
-      stage.viewport.centerOn(2000, 540);
+      stage.viewport.scale = 0.45;
+      stage.viewport.centerOn(2200, 540);
 
       stage.on("killed", function(name) { console.log(name + " has been killed") });
 
