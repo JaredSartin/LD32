@@ -32,10 +32,15 @@ Q.Sprite.extend("Interactive",{
     if(this.p.weapon) player.p.weapon = this.p.weapon;
     this.p.usable = false;
     this.play("interact");
+    if(player && this.p[player.p.character]) {
+      this.p.sheet = this.p.sprite = this.p[player.p.character]
+    }
   },
 
   sensor: function(sensed) {
-    if(!!this.p.triggerCharacter && sensed.p.sprite == this.p.triggerCharacter) {
+    if(!!this.p.triggerOnCharacter && this.p[sensed.p.character]) {
+      // HACK!
+      if(sensed.p.character !== "Pearl" && this.p.prop.indexOf("Bathroom") >= 0) sensed.trigger("killHide");
       this.p.usable = true;
       this.use(sensed);
       return;

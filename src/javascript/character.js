@@ -1,8 +1,8 @@
 Q.Sprite.extend("Character", {
   init: function(p) {
     this.normalPoints = [[-40, -40], [40, -40], [40, 150], [-40, 150]];
-    this.attackingPoints_right = [[-40, -40], [100, -40], [100, 150], [-40, 150]];
-    this.attackingPoints_left = [[40, -40], [-100, -40], [-100, 150], [40, 150]];
+    this.attackingPoints_right = [[-40, -40], [150, -40], [150, 150], [-40, 150]];
+    this.attackingPoints_left = [[-150, 150], [40, 150], [40, -40], [-150, -40]];
 
     this._super(p, {
       sheet: p.character,
@@ -23,6 +23,7 @@ Q.Sprite.extend("Character", {
     this.on("touch");
     this.on("sensor");
     this.on("doorSensor");
+    this.on("killHide");
     this.on("attacked");
     this.on("injured");
     this.p.sheet = this.p.sprite + "Walk";
@@ -33,12 +34,25 @@ Q.Sprite.extend("Character", {
       Q("Character").invoke("stopControl", false);
       this.p.type = Q.SPRITE_PLAYER;
       this.p.controlled = true;
+      this.p.isNPC = false;
       Q.stage().follow(this, { x: true, y: false });
     }
   },
 
+  killHide: function() {
+    if(!this.p.isAlive) return;
+    this.p.isAlive = false;
+    Q("Character").invoke("stopControl", false);
+    this.p.opacity = 0;
+    this.p.collisionMask = Q.SPRITE_DEFAULT;
+    this.isControlled = false;
+    this.p.vx = 0;
+    Q.stage().trigger("killed", this.p.character);
+  },
+
   sensor: function(sensor) {
     if(sensor.isA("Interactive") && sensor.p.usable) {
+      // HUGE HACK TO MAKE THE LD GAME WORK!
       this.sensor = sensor;
       this.p.canUse = 1/5;
     } else if(sensor.isA("Character") && this.p.attacking && sensor.p.isAlive) {

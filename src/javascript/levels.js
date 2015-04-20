@@ -1,11 +1,4 @@
-var death = function(dt) {
-  window.timer = window.timer || 0;
-
-  window.timer += dt;
-
-  // at 20 seconds move jill to bedroom
-  // ...
-};
+var death = function(dt) { };
 
 var levels = [
   {title: "Case File 0001: The Duprees", name: "test", step: death},
@@ -45,7 +38,7 @@ for(i in levels) {
           }
         });
         pearl.remoteControl("walkLeft", 8);
-      }, 10000);
+      }, 1000);
 
       stage.on("step", level.step);
     });
@@ -112,7 +105,6 @@ Q.scene('levelOverlay',function(stage) {
   var title = stage.insert(new Q.UI.Text({
     x: Q.width / 2,
     y: Q.height / 3,
-    // label: "Level " + stage.options.number + " — " + stage.options.title+ "...",
     label: stage.options.title,
     color: "#FFFFFF",
     outlineColor: "#545E5E",

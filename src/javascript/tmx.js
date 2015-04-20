@@ -123,25 +123,25 @@ Q.loadTMX(files.join(", "), function() {
     used: { frames: [1], rate: 1/12, flip: false },
   });
 
-  var frames = []; while(frames.length < 37) { frames.push(frames.length); }
-  Q.animations("BathroomA", {
-    normal: { frames: [0], rate: 1/12, flip: false, loop: true },
-    interact: { frames: frames, rate: 1/12, flip: false, loop: false, trigger: "complete" },
-    used: { frames: [35], rate: 1/12, flip: false },
-  });
-
   var frames = []; while(frames.length < 32) { frames.push(frames.length); }
-  Q.animations("BathroomB", {
+  Q.animations("BathroomA", {
     normal: { frames: [0], rate: 1/12, flip: false, loop: true },
     interact: { frames: frames, rate: 1/12, flip: false, loop: false, trigger: "complete" },
     used: { frames: [31], rate: 1/12, flip: false },
   });
 
-  var frames = []; while(frames.length < 33) { frames.push(frames.length); }
+  var frames = []; while(frames.length < 28) { frames.push(frames.length); }
+  Q.animations("BathroomB", {
+    normal: { frames: [0], rate: 1/12, flip: false, loop: true },
+    interact: { frames: frames, rate: 1/12, flip: false, loop: false, trigger: "complete" },
+    used: { frames: [27], rate: 1/12, flip: false },
+  });
+
+  var frames = []; while(frames.length < 28) { frames.push(frames.length); }
   Q.animations("BathroomC", {
     normal: { frames: [0], rate: 1/12, flip: false, loop: true },
     interact: { frames: frames, rate: 1/12, flip: false, loop: false, trigger: "complete" },
-    used: { frames: [32], rate: 1/12, flip: false },
+    used: { frames: [27], rate: 1/12, flip: false },
   });
 
   var frames = []; while(frames.length < 55) { frames.push(frames.length); }
@@ -151,9 +151,10 @@ Q.loadTMX(files.join(", "), function() {
     used: { frames: [54], rate: 1/12, flip: false },
   });
 
-  // document.querySelectorAll("video")[0].onended = function() {
-  //   this.parentNode.removeChild(this);
-  //   Q.stageScene(levels[0].name);
-  // }
+  document.querySelectorAll("video")[0].onended = function() {
+    this.parentNode.removeChild(this);
     Q.stageScene(levels[0].name);
+    document.body.style.background = "#241E2F";
+  }
+    // Q.stageScene(levels[0].name);
 });
