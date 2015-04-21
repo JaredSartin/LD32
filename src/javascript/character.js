@@ -95,21 +95,23 @@ Q.Sprite.extend("Character", {
 
   remoteControl: function(command, duration, silent) {
     if(silent === undefined) silent = false;
-    this.p.isRemote = true;
     this.p.remote = command;
     this.p.remoteTime = duration;
     this.p.remoteSilent = silent;
+    this.p.isRemote = true;
   },
 
   stepRemote: function(dt) {
     this.p.remoteTime -= dt;
     this[this.p.remote]();
     if(this.p.remoteTime < 0) {
-      if(!this.p.remoteSilent)
-        this.trigger("remoteDone", this.p.remote);
+      var oldRemote =  this.p.remote;
       this.p.isRemote = false;
       this.p.remote = undefined;
       this.p.remoteTime = 0;
+      if(!this.p.remoteSilent) {
+        this.trigger("remoteDone", oldRemote);
+      }
     }
   },
 
@@ -136,7 +138,10 @@ Q.Sprite.extend("Character", {
     var processed = false;
     if(this.p.attacking) return;
     if(!this.p.isAlive) return;
-    if(this.p.isRemote) this.stepRemote(dt);
+    if(this.p.isRemote && this.p.remote) {
+      this.stepRemote(dt);
+      return;
+    }
     if(!this.p.controlled && !this.p.isRemote) {
       this.stand();
     };
@@ -183,9 +188,7 @@ Q.Sprite.extend("Character", {
         // Transport to matching door.
         this.p.y = this.p.toDoor.p.y;
         this.p.x = this.p.toDoor.p.x;
-        this.stage.centerOn(this.p.x, this.p.y);
         this.p.toDoor = false;
-        this.stage.follow(this);
         processed = true;
       }
     } 

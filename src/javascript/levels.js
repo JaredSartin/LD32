@@ -22,7 +22,6 @@ for(i in levels) {
       stage.on("killed", function(name) { console.log(name + " has been killed") });
 
       setTimeout(function() {
-        console.log("go!");
         var pearl = undefined;
         Q("Character").each(function() {
           if(this.p.character == "Pearl") pearl = this;
@@ -32,15 +31,27 @@ for(i in levels) {
           door.use();
         });
 
+        var levelTravels = 1;
+        pearl.on("atLevelDoor", function(door) {
+          if(levelTravels <= 0) return;
+          levelTravels--;
+          var toDoor = door.findLinkedDoor();
+          pearl.p.x = toDoor.p.x;
+          pearl.p.y = toDoor.p.y;
+        });
         // DOOR SENSOR TO OTHER FLOOR
 
         pearl.on("remoteDone", function(method) {
-          if(method =="walkLeft") {
+          if(method == "walkLeft") {
+            pearl.remoteControl("stand", 3);
+          } else if (method == "stand") {
+            pearl.remoteControl("walkRight", 3);
+          } else if(method == "walkRight") {
             pearl.remoteControl("stand", 1, true);
           }
         });
-        pearl.remoteControl("walkLeft", 8);
-      }, 15000);
+        pearl.remoteControl("walkLeft", 9.5);
+      }, 3000);
 
       stage.on("step", level.step);
     });

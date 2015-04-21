@@ -7,7 +7,8 @@ Q.Sprite.extend("Door", {
       sensor: true,
       vx: 0,
       vy: 0,
-      gravity: 0
+      gravity: 0,
+      points: [[-10, -10], [-10, 10], [10, 10], [10, -10]],
     });
     this.add("animation");
 
@@ -19,6 +20,7 @@ Q.Sprite.extend("Door", {
   },
 
   sensor: function(colObj) {
+    colObj.trigger("atLevelDoor", this);
     colObj.p.door = this;
   }
 });
